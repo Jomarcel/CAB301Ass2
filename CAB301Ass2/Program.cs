@@ -39,34 +39,44 @@ namespace CAB301Ass2
 
             #endregion
 
-            List<int[]> arrList = new List<int[]>(); // arrayList to hold all the int[] arrays stored in the .csv file
-            List<string> timeList = new List<string>(); // list for tracking execution time
-            List<int> opCountList = new List<int>(); // list for tracking operation counts
-
-            Stopwatch sw = new Stopwatch();
-
-            readFile(arrList, 1000); // this only grabs the 1000.csv file you can put this in a loop to grab all of them in one go and do the process on them
-
-            
-            foreach (int[] item in arrList)
+            for (var i = 1000; i <= 10000; i = i + 500)
             {
-                opCount = 1;
-                opCountList = new List<int>();
-                timeList = new List<string>();
-                sw = new Stopwatch();
-                sw.Start();
 
-                int medVal = Median(item);
+                Console.WriteLine("Analysing data from array size: " + i);
 
-                sw.Stop();
-                timeList.Add(sw.GetTimeString());
-                opCountList.Add(opCount);
+                var arrList = new List<int[]>(); // arrayList to hold all the int[] arrays stored in the .csv file
+                var timeList = new List<string>(); // list for tracking execution time
+                var opCountList = new List<int>(); // list for tracking operation counts
 
-                Console.WriteLine("Median Value: " + medVal + ", Execution Time: "+ sw.GetTimeString() + ", OpCount: " + opCount);   
-                
+                var sw = new Stopwatch();
+            
+
+
+                readFile(arrList, i); // this only grabs the 1000.csv file you can put this in a loop to grab all of them in one go and do the process on them
+
+
+                foreach (var item in arrList)
+                {
+                    opCount = 0;
+                    sw = new Stopwatch();
+                    sw.Start();
+
+                    var medVal = Median(item);
+
+                    sw.Stop();
+                    timeList.Add(sw.GetTimeString());
+                    opCountList.Add(opCount);
+
+                    Console.WriteLine("Median Value: " + medVal + ", Execution Time: " + sw.GetTimeString() + ", OpCount: " + opCount);
+
+                }
+                Console.WriteLine("Saving Data collected for array size: " + i);
+                writeData(timeList, opCountList, i);
+                 // pause to view console   
             }
-             writeData(timeList,opCountList, 1000);            
-            Console.ReadLine(); // pause to view console            
+
+            Console.WriteLine("Finished All Data Analysis");
+            Console.ReadLine();
         }
 
         #region Algorithm
@@ -111,12 +121,11 @@ namespace CAB301Ass2
         public static int Partition(int[] arr, int l, int h)
         {
             
-            int pivotVal = arr[l];
-            int pivotLoc = l;
-            int temp;
-            for (int j = l + 1; j <= h; j++)
+            var pivotVal = arr[l];
+            var pivotLoc = l;
+            for (var j = l + 1; j <= h; j++)
             {
-               
+                int temp;
                 if (arr[j] < pivotVal)
                 {
                     pivotLoc++;
@@ -141,8 +150,8 @@ namespace CAB301Ass2
 
         public static void shuffleArr(int[] arr)
         {
-            int n = arr.Length;
-            for (int i = 0; i < n; i++)
+            var n = arr.Length;
+            for (var i = 0; i < n; i++)
             {
                 // Use Next on random instance with an argument.
                 // ... The argument is an exclusive bound.
@@ -157,11 +166,11 @@ namespace CAB301Ass2
         public static void readFile(List<int[]> arrList, int arrSize)
         {
 
-            string fileName = @"D:\testData\" + arrSize + ".csv"; // need to make this a relative path
+            var fileName = @"C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\testData\" + arrSize + ".csv"; // need to make this a relative path
             try // try/catch is used as if the filestream tries to access a file that doesnt exist
                 // it will cause a input/output error to crash your program due to FileMode.Open
             {
-                using (FileStream fileStream = new FileStream(fileName, FileMode.Open)) // create tunnel between program and file
+                using (var fileStream = new FileStream(fileName, FileMode.Open)) // create tunnel between program and file
                 {
                     using (var reader = new StreamReader(fileStream)) // tool for reading each line
                     {
@@ -170,8 +179,8 @@ namespace CAB301Ass2
                         {
                             var line = reader.ReadLine();
                             var values = line.Split(',');
-                            int[] temp = new int[values.Length]; // readline reads in the data as string[] so we need a process to convert it
-                            for (int i = 0; i < values.Length - 1; i++)
+                            var temp = new int[values.Length]; // readline reads in the data as string[] so we need a process to convert it
+                            for (var i = 0; i < values.Length - 1; i++)
                             {
                                 temp[i] = Convert.ToInt32(values[i]);
                             }
@@ -189,13 +198,13 @@ namespace CAB301Ass2
 
         public  void createTestData(int[] arr)
         {
-            string fileName = @"D:\\testData\\" + arr.Length + ".csv"; // need to make this a relative path
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Append))
+            var fileName = @"C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\testData\" + arr.Length + ".csv"; // need to make this a relative path
+            using (var fileStream = new FileStream(fileName, FileMode.Append))
             {
-                using (StreamWriter outFile = new StreamWriter(fileStream))
+                using (var outFile = new StreamWriter(fileStream))
 
                 {
-                    foreach (int item in arr)
+                    foreach (var item in arr)
                     {
                         outFile.Write(item + ",");
 
@@ -210,16 +219,16 @@ namespace CAB301Ass2
             writeOPData(opCountList, arraySize);
         }
 
-        public static void writeTimeData(List<string> timeList, int arraySize) // relative paths
+        public static void writeTimeData(List<string> timeList, int arraySize)
         {
-            string fileName = @"D:\testData\Output\" + arraySize + "excTimes.csv";      // currently only setup for time list 
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Append))   // if passed the opcount list it will output but the filename will be wrong
+            var fileName = @"C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\testData\Output\" + arraySize + "excTimes.csv";    
+            using (var fileStream = new FileStream(fileName, FileMode.Append))  
             {
-                using (StreamWriter outFile = new StreamWriter(fileStream))
+                using (var outFile = new StreamWriter(fileStream))
                 {
-                    foreach (string item in timeList)
+                    foreach (var item in timeList)
                     {
-                        string[] temp = new string[2];
+                        var temp = new string[2];
                         temp = item.Split(',');                         // split the time and its indicator (s, ms, us, ns) 
                         outFile.WriteLine(temp[0] + "," + temp[1]);     // for easier use of data
                     }
@@ -230,12 +239,12 @@ namespace CAB301Ass2
 
         public static void writeOPData(List<int> opCountList, int arraySize)
         {
-            string fileName = @"D:\testData\Output\" + arraySize + "opCount.csv"; // relative paths      
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Append))
+            var fileName = @"C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\testData\Output\" + arraySize + "opCount.csv"; // relative paths      
+            using (var fileStream = new FileStream(fileName, FileMode.Append))
             {
-                using (StreamWriter outFile = new StreamWriter(fileStream))
+                using (var outFile = new StreamWriter(fileStream))
                 {
-                    foreach (int item in opCountList)
+                    foreach (var item in opCountList)
                     {                                              
                         outFile.WriteLine(item);     // for easier use of data
                     }                    

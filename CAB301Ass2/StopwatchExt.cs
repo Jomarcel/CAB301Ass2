@@ -11,7 +11,7 @@ namespace CAB301Ass2
     {
         public static string GetTimeString(this Stopwatch stopwatch, int numberofDigits = 1)
         {
-            double time = stopwatch.ElapsedTicks / (double)Stopwatch.Frequency;
+            var time = stopwatch.ElapsedTicks / (double)Stopwatch.Frequency;
             if (time > 1)
                 return Math.Round(time, numberofDigits) + ",s";
             if (time > 1e-3)

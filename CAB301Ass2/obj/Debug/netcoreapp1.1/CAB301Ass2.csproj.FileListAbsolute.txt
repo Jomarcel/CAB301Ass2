@@ -16,3 +16,14 @@ D:\CAB301Ass2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.csprojResolveAssembl
 D:\CAB301Ass2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.AssemblyInfo.cs
 D:\CAB301Ass2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.dll
 D:\CAB301Ass2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.pdb
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\bin\Debug\netcoreapp1.1\CAB301Ass2.deps.json
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\bin\Debug\netcoreapp1.1\CAB301Ass2.runtimeconfig.json
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\bin\Debug\netcoreapp1.1\CAB301Ass2.runtimeconfig.dev.json
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\bin\Debug\netcoreapp1.1\CAB301Ass2.dll
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\bin\Debug\netcoreapp1.1\CAB301Ass2.pdb
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.csprojResolveAssemblyReference.cache
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.csproj.CoreCompileInputs.cache
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.AssemblyInfoInputs.cache
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.AssemblyInfo.cs
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.dll
+C:\Users\UnBayleefable\Documents\GitHub\CAB301Ass2V2\CAB301Ass2\obj\Debug\netcoreapp1.1\CAB301Ass2.pdb
